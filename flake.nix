@@ -2,7 +2,6 @@
   description = "Basic Nix flake";
 
   inputs = {
-    # Pin a stable nixpkgs release (adjust as needed)
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
