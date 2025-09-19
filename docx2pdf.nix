@@ -23,7 +23,6 @@ buildPythonPackage rec {
   };
 
   nativeBuildInputs = [poetry-core];
-  build-system= [poetry-core];
 
   propagatedBuildInputs = [
     tqdm
@@ -32,6 +31,14 @@ buildPythonPackage rec {
   doCheck = false;
 
   pythonImportsCheck = ["docx2pdf"];
+
+  postPatch = ''
+    substituteInPlace pyproject.toml \
+      --replace-fail 'build-backend = "poetry.masonry.api"' 'build-backend = "poetry.core.masonry.api"' \
+      --replace-fail 'requires = ["poetry>=0.12"]' 'requires = ["poetry-core"]' \
+  '';
+
+  dontCheckRuntimeDeps = true;
 
   meta = with lib; {
     description = "Convert docx to pdf on Windows or macOS directly using Microsoft Word (must be installed)";
