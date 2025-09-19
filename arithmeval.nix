@@ -24,14 +24,12 @@ buildPythonPackage rec {
   ];
 
   doCheck = false;
-  # Uncomment if the project has an importable top-level module:
   # pythonImportsCheck = [ "arithmeval" ];
 
   meta = with lib; {
     description = "Arithmetic expression evaluation library (fill in accurate description)";
     homepage = "https://github.com/enesklcarslan/arithmeval";
-    # Replace license with the correct one from the repo (e.g. licenses.mit).
-    license = licenses.bsd3 ; # TODO: fix license
+    license = licenses.bsd3 ; 
     maintainers = [];
     platforms = platforms.all;
   };
