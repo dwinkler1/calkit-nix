@@ -48,14 +48,14 @@
   poetry-core,
 }:
 buildPythonPackage rec {
-  pname = "calkit-python";
-  version = "dev1";
+  pname = "calkit";
+  version = "0.30.1";
   format = "pyproject";
 
   src = fetchFromGitHub {
     owner = "calkit";
     repo = "calkit";
-    rev = "main";
+    rev = "5602cc709a367d11b9f522655eee2e71f906364c";
     hash = "sha256-PWIK9M4PRyLCTppsgC3O+0MAqhQKfC/PIlJPxmDP4es=";
   };
 
@@ -96,7 +96,8 @@ buildPythonPackage rec {
 
   passthru.dev-dependencies = {
     dev = [
-      #deptry
+      # TODO
+      ## deptry
       ipykernel
       jupyter
       kaleido
